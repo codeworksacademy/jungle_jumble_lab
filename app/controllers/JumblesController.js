@@ -4,12 +4,20 @@ import { setHTML } from "../utils/Writer.js";
 
 export class JumblesController {
   constructor() {
-    AppState.on('activeJumble', this.drawActiveJumble)
     console.log('Jumbles Controller Loaded 🐒');
+    AppState.on('activeJumble', this.drawActiveJumble)
+    AppState.on('jumbles', this.drawJumbles)
     this.drawJumbles()
   }
+
   drawActiveJumble() {
-    setHTML('jumble-game', AppState.activeJumble.gameHTMLTemplate)
+    if (AppState.activeJumble == null) {
+      setHTML('jumble-game', '')
+    }
+    else {
+      setHTML('jumble-game', AppState.activeJumble.gameHTMLTemplate)
+      document.getElementById('jumble-game-input').focus()
+    }
   }
 
   drawJumbles() {
@@ -24,5 +32,13 @@ export class JumblesController {
    */
   setActiveJumble(jumbleId) {
     jumblesService.setActiveJumble(jumbleId)
+  }
+
+  checkJumbleInput() {
+    event.preventDefault()
+    const formElem = event.target
+    // @ts-ignore
+    const jumbleText = formElem.jumbleGameBody.value
+    jumblesService.checkJumbleInput(jumbleText)
   }
 }
