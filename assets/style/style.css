@@ -51,6 +51,10 @@ header>.jumble-card {
   box-shadow: -10px 10px var(--bs-info);
 }
 
+#jumble-game p {
+  user-select: none;
+}
+
 .col-md-5 .jumble-card {
   box-shadow: 10px 10px var(--bs-warning);
 }
