@@ -2,7 +2,27 @@
 
 body {
   background-image: url(/public/fruits.svg);
-  padding: 1em 3em;
+  padding: 2em 3em;
+}
+
+h1 {
+  text-shadow: -2px 2px var(--bs-danger);
+}
+
+h2,
+b {
+  text-shadow: 2px 2px var(--bs-warning);
+}
+
+h3 {
+  text-shadow: 2px 2px var(--bs-success);
+}
+
+.jumble-card {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 1em 2em;
 }
 
 header>.jumble-card {
@@ -10,12 +30,14 @@ header>.jumble-card {
   box-shadow: 10px -10px var(--bs-danger);
 }
 
-h1 {
-  text-shadow: -3px 3px var(--bs-danger);
+#jumble-game .jumble-card:first-child {
+  box-shadow: -10px -10px var(--bs-success);
 }
 
-.jumble-card {
-  background-color: white;
-  border: 3px solid black;
-  border-radius: 15px;
+#jumble-game .jumble-card:last-child {
+  box-shadow: -10px 10px var(--bs-info);
+}
+
+.col-md-5 .jumble-card {
+  box-shadow: 10px 10px var(--bs-warning);
 }
