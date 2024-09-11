@@ -39,11 +39,12 @@
             <form onsubmit="app.JumblesController.createJumble()">
               <h4 class="text-center">Create Jumble</h4>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="jumble-name" placeholder="Name" name="name">
+                <input type="text" class="form-control" id="jumble-name" placeholder="Name" name="name" required>
                 <label for="name">Name</label>
               </div>
               <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Jumble Body" id="jumble-body" name="body"></textarea>
+                <textarea class="form-control" placeholder="Jumble Body" id="jumble-body" name="body"
+                  required></textarea>
                 <label for="jumble-body">Jumble</label>
               </div>
               <button class="btn btn-warning w-100" type="submit">create <i class="mdi mdi-arrow-right"></i></button>
