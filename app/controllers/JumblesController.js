@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { Jumble } from "../models/Jumble.js";
 import { jumblesService } from "../services/JumblesService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { setHTML } from "../utils/Writer.js";
@@ -8,13 +9,13 @@ export class JumblesController {
     console.log('Jumbles Controller Loaded 🐒');
     AppState.on('activeJumble', this.drawActiveJumble)
     AppState.on('jumbles', this.drawJumbles)
-
+    this.drawActiveJumble()
     jumblesService.loadJumbles()
   }
 
   drawActiveJumble() {
     if (AppState.activeJumble == null) {
-      setHTML('jumble-game', '')
+      setHTML('jumble-game', Jumble.placeHolderHTMLTemplate)
     }
     else {
       setHTML('jumble-game', AppState.activeJumble.gameHTMLTemplate)

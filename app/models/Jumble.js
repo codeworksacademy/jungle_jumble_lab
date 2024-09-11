@@ -14,9 +14,11 @@ export class Jumble {
 
   get listHTMLTemplate() {
     return `
-    <div class="d-flex justify-content-between align-items-center mb-2">
+    <div class="d-md-flex justify-content-between align-items-center mb-2">
       <div>
-        <button onclick="app.JumblesController.setActiveJumble('${this.id}')" class="btn btn-warning fw-bold" type="button">start</button>
+        <button onclick="app.JumblesController.setActiveJumble('${this.id}')" class="btn btn-warning fw-bold" type="button" title="${this.startButtonTitle}">
+          start
+        </button>
         <b>${this.name}</b>
       </div>
       <div class="${this.fastestTime == Infinity ? 'd-none' : ''}">
@@ -24,6 +26,7 @@ export class Jumble {
         <span class="fw-bold">${this.fastestWordsPerMinute.toFixed(1)} wpm</span>
       </div>
     </div>
+    <hr>
     `
   }
 
@@ -48,12 +51,45 @@ export class Jumble {
     `
   }
 
+
   get fastestTimeInSeconds() {
     return this.fastestTime / 1000
   }
-
-  get fastestWordsPerMinute() {
-    const wordCount = this.body.split(' ').length
-    return wordCount * 60 / this.fastestTimeInSeconds
+  get wordCount() {
+    return this.body.split(' ').length
   }
+  get fastestWordsPerMinute() {
+    return this.wordCount * 60 / this.fastestTimeInSeconds
+  }
+
+  get startButtonTitle() {
+    return `Start the ${this.name}! This Jumble has a total of ${this.wordCount} words!`
+  }
+
+  static get placeHolderHTMLTemplate() {
+    return `
+     <div class="jumble-card h-100 p-0">
+        <marquee behavior="alternate" direction="up" class="h-100">
+          <marquee behavior="alternate" direction="left" scrollamount="50">
+            <span class="display-1">${this.randomEmoji}</span>
+          </marquee>
+        </marquee>
+      </div>
+    `
+  }
+
+  static get randomEmoji() {
+    const emojis = [
+      '🐦', '🐤', '🦆', '🦅', '🦉', '🦇', '🫏', '🐒', '🐛', '🦋',
+      '🐌', '🐞', '🐜', '🦟', '🦗', '🦂', '🦀', '🦞', '🦐', '🦑',
+      '🐙', '🐠', '🐟', '🐡', '🐬', '🐳', '🐋', '🐊', '🐢', '🦎',
+      '🐍', '🦖', '🦕', '🐅', '🐆', '🦓', '🦍', '🦧', '🦣', '🦏',
+      '🦛', '🐘', '🦒', '🦘', '🦥', '🦦', '🦨', '🦡', '🐇', '🐿️',
+      '🦔', '🐝'
+    ]
+    const randomIndex = Math.floor(Math.random() * emojis.length)
+    return emojis[randomIndex]
+
+  }
+
 }

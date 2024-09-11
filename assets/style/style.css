@@ -1,7 +1,7 @@
 /* BASIC STYLES HERE */
 
 body {
-  background-image: url(/public/fruits.svg);
+  background-image: url(/fruits.svg);
   padding: 2em 3em;
 }
 
@@ -30,8 +30,17 @@ header>.jumble-card {
   box-shadow: 10px -10px var(--bs-danger);
 }
 
-textarea {
-  min-height: 20dvh !important;
+#jumble-body {
+  min-height: 20dvh;
+}
+
+#jumble-game-input {
+  min-height: 40dvh;
+}
+
+#jumbles-list {
+  max-height: 23dvh;
+  overflow-y: auto;
 }
 
 #jumble-game .jumble-card:first-child {
