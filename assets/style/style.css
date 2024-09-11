@@ -1,0 +1,21 @@
+/* BASIC STYLES HERE */
+
+body {
+  background-image: url(/public/fruits.svg);
+  padding: 1em 3em;
+}
+
+header>.jumble-card {
+  width: fit-content;
+  box-shadow: 10px -10px var(--bs-danger);
+}
+
+h1 {
+  text-shadow: -3px 3px var(--bs-danger);
+}
+
+.jumble-card {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+}
