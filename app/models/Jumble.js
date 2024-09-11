@@ -68,13 +68,11 @@ export class Jumble {
 
   static get placeHolderHTMLTemplate() {
     return `
-     <div class="jumble-card h-100 p-0">
-        <marquee behavior="alternate" direction="up" class="h-100">
-          <marquee behavior="alternate" direction="left" scrollamount="50">
-            <span class="display-1">${this.randomEmoji}</span>
-          </marquee>
+      <marquee behavior="alternate" direction="up" class="h-100">
+        <marquee behavior="alternate" direction="left" scrollamount="50">
+          <span class="display-1">${this.randomEmoji}</span>
         </marquee>
-      </div>
+      </marquee>
     `
   }
 

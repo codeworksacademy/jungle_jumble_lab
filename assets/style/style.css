@@ -58,3 +58,8 @@ header>.jumble-card {
 .col-md-5 .jumble-card {
   box-shadow: 10px 10px var(--bs-warning);
 }
+
+marquee span {
+  user-select: none;
+  text-shadow: 0 0 5px black;
+}
