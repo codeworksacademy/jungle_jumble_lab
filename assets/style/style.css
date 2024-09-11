@@ -30,6 +30,10 @@ header>.jumble-card {
   box-shadow: 10px -10px var(--bs-danger);
 }
 
+textarea {
+  min-height: 20dvh !important;
+}
+
 #jumble-game .jumble-card:first-child {
   box-shadow: -10px -10px var(--bs-success);
 }

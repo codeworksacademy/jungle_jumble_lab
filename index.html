@@ -30,11 +30,11 @@
           <div class="jumble-card">
             <h2 class="text-center mb-3">Jumbles!</h2>
             <div id="jumbles-list" class="mb-5"></div>
-            <form>
+            <form onsubmit="app.JumblesController.createJumble()">
               <h4 class="text-center">Create Jumble</h4>
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="jumble-name" placeholder="Jumble Name">
-                <label for="name">Jumble Name</label>
+                <input type="text" class="form-control" id="jumble-name" placeholder="Name" name="name">
+                <label for="name">Name</label>
               </div>
               <div class="form-floating mb-3">
                 <textarea class="form-control" placeholder="Jumble Body" id="jumble-body" name="body"></textarea>

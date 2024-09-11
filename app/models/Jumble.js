@@ -2,13 +2,13 @@ import { generateId } from "../utils/GenerateId.js"
 
 export class Jumble {
   /**
-   * @param {{ name: string; body: string; }} data
+   * @param {{ name: string; body: string; fastestTime?: number }} data
    */
   constructor(data) {
     this.id = generateId()
     this.name = data.name
     this.body = data.body
-    this.fastestTime = Infinity
+    this.fastestTime = data.fastestTime || Infinity
     this.startTime = 0
   }
 
